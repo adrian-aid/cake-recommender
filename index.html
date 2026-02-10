@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Perfect Slice - AI Cake Recommendation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -525,12 +526,555 @@
                 state.texture
             );
 
+=======
+    <title>Perfect Slice - Baking Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fff9f4 0%, #f8f4f0 100%);
+            color: #5a4a42;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #8b5a2b;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a67c52;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .question h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #8b5a2b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-card {
+            background: #f8f4f0;
+            border: 2px solid #e8dccd;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4b483;
+            box-shadow: 0 8px 20px rgba(212, 180, 131, 0.2);
+        }
+
+        .option-card.selected {
+            background: #e8dccd;
+            border-color: #8b5a2b;
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.2);
+        }
+
+        .option-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-card label {
+            display: block;
+            cursor: pointer;
+            font-weight: 500;
+            color: #5a4a42;
+        }
+
+        .option-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .submit-btn {
+            background: #8b5a2b;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #6a4420;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+        }
+
+        .result-container {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.1);
+            margin: 40px auto;
+            max-width: 800px;
+            animation: fadeIn 1s ease;
+        }
+
+        .cake-card {
+            text-align: center;
+        }
+
+        .cake-image {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cake-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #8b5a2b;
+            margin-bottom: 10px;
+        }
+
+        .cake-price {
+            font-size: 1.8rem;
+            color: #d4742c;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .cake-description {
+            font-size: 1.1rem;
+            color: #5a4a42;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .cake-reasoning {
+            background: #f8f4f0;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .cake-reasoning h4 {
+            font-family: 'Playfair Display', serif;
+            color: #8b5a2b;
+            margin-bottom: 10px;
+        }
+
+        .another-btn {
+            background: #a67c52;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: all 0.3s ease;
+        }
+
+        .another-btn:hover {
+            background: #8b5a2b;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-container,
+            .result-container {
+                padding: 20px;
+            }
+            
+            .options {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Perfect Slice</h1>
+            <p class="subtitle">Discover your ideal cake through our personalized AI recommendation system</p>
+        </header>
+
+        <div class="form-container" id="questionnaire">
+            <div class="question">
+                <h3>What kind of flavours make you happiest?</h3>
+                <div class="options">
+                    <div class="option-card">
+                        <input type="radio" id="flavor-vanilla" name="flavor" value="Vanilla">
+                        <label for="flavor-vanilla">
+                            <span class="icon">🍦</span>
+                            Vanilla
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="flavor-chocolate" name="flavor" value="Chocolate">
+                        <label for="flavor-chocolate">
+                            <span class="icon">🍫</span>
+                            Chocolate
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="flavor-red-velvet" name="flavor" value="Red Velvet">
+                        <label for="flavor-red-velvet">
+                            <span class="icon">❤️</span>
+                            Red Velvet
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="flavor-citrus" name="flavor" value="Citrus">
+                        <label for="flavor-citrus">
+                            <span class="icon">🍋</span>
+                            Citrus
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="flavor-coffee" name="flavor" value="Coffee">
+                        <label for="flavor-coffee">
+                            <span class="icon">☕</span>
+                            Coffee
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="flavor-matcha" name="flavor" value="Matcha">
+                        <label for="flavor-matcha">
+                            <span class="icon">🍵</span>
+                            Matcha
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="flavor-berry" name="flavor" value="Berry">
+                        <label for="flavor-berry">
+                            <span class="icon">🍓</span>
+                            Berry
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>How sweet do you like your treats?</h3>
+                <div class="options">
+                    <div class="option-card">
+                        <input type="radio" id="sweetness-low" name="sweetness" value="Low">
+                        <label for="sweetness-low">
+                            <span class="icon">🍯</span>
+                            Low
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="sweetness-medium" name="sweetness" value="Medium">
+                        <label for="sweetness-medium">
+                            <span class="icon">🍯🍯</span>
+                            Medium
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="sweetness-high" name="sweetness" value="High">
+                        <label for="sweetness-high">
+                            <span class="icon">🍯🍯🍯</span>
+                            High
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>What's the special occasion?</h3>
+                <div class="options">
+                    <div class="option-card">
+                        <input type="radio" id="occasion-birthday" name="occasion" value="Birthday">
+                        <label for="occasion-birthday">
+                            <span class="icon">🎂</span>
+                            Birthday
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="occasion-wedding" name="occasion" value="Wedding">
+                        <label for="occasion-wedding">
+                            <span class="icon">💒</span>
+                            Wedding
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="occasion-kids-party" name="occasion" value="Kids Party">
+                        <label for="occasion-kids-party">
+                            <span class="icon">🎈</span>
+                            Kids Party
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="occasion-morning-tea" name="occasion" value="Morning Tea">
+                        <label for="occasion-morning-tea">
+                            <span class="icon">☕</span>
+                            Morning Tea
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="occasion-anniversary" name="occasion" value="Anniversary">
+                        <label for="occasion-anniversary">
+                            <span class="icon">💝</span>
+                            Anniversary
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="occasion-just-because" name="occasion" value="Just Because">
+                        <label for="occasion-just-because">
+                            <span class="icon">✨</span>
+                            Just Because
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Any dietary needs we should care for?</h3>
+                <div class="options">
+                    <div class="option-card">
+                        <input type="radio" id="diet-none" name="diet" value="None" checked>
+                        <label for="diet-none">
+                            <span class="icon">✔️</span>
+                            None
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="diet-gluten-free" name="diet" value="Gluten-Free">
+                        <label for="diet-gluten-free">
+                            <span class="icon">🌾</span>
+                            Gluten-Free
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="diet-vegan" name="diet" value="Vegan">
+                        <label for="diet-vegan">
+                            <span class="icon">🌱</span>
+                            Vegan
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="diet-nut-free" name="diet" value="Nut-Free">
+                        <label for="diet-nut-free">
+                            <span class="icon">🥜</span>
+                            Nut-Free
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="diet-dairy-free" name="diet" value="Dairy-Free">
+                        <label for="diet-dairy-free">
+                            <span class="icon">🐄</span>
+                            Dairy-Free
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>What texture are you craving?</h3>
+                <div class="options">
+                    <div class="option-card">
+                        <input type="radio" id="texture-light" name="texture" value="Light & Fluffy">
+                        <label for="texture-light">
+                            <span class="icon">☁️</span>
+                            Light & Fluffy
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="texture-moist" name="texture" value="Super Moist">
+                        <label for="texture-moist">
+                            <span class="icon">💧</span>
+                            Super Moist
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="texture-dense" name="texture" value="Dense & Rich">
+                        <label for="texture-dense">
+                            <span class="icon">⚖️</span>
+                            Dense & Rich
+                        </label>
+                    </div>
+                    <div class="option-card">
+                        <input type="radio" id="texture-soft" name="texture" value="Soft & Creamy">
+                        <label for="texture-soft">
+                            <span class="icon">🍦</span>
+                            Soft & Creamy
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="submit-btn" id="submit-btn">Find My Perfect Cake</button>
+        </div>
+
+        <div class="result-container" id="result-container">
+            <div class="cake-card">
+                <img id="cake-image" class="cake-image" src="" alt="Recommended Cake">
+                <h2 id="cake-name" class="cake-name"></h2>
+                <div id="cake-price" class="cake-price"></div>
+                <p id="cake-description" class="cake-description"></p>
+                <div class="cake-reasoning">
+                    <h4>Why we chose this cake:</h4>
+                    <p id="cake-reasoning"></p>
+                </div>
+                <button class="another-btn" id="another-btn">Generate Another Cake</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Event listeners for option cards
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+                
+                // Remove selected class from all cards in this group
+                this.parentElement.querySelectorAll('.option-card').forEach(c => {
+                    c.classList.remove('selected');
+                });
+                
+                // Add selected class to this card
+                this.classList.add('selected');
+            });
+        });
+
+        // Submit button event listener
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            // Get selected values
+            const flavor = document.querySelector('input[name="flavor"]:checked').value;
+            const sweetness = document.querySelector('input[name="sweetness"]:checked').value;
+            const occasion = document.querySelector('input[name="occasion"]:checked').value;
+            const diet = document.querySelector('input[name="diet"]:checked').value;
+            const texture = document.querySelector('input[name="texture"]:checked').value;
+
+            // Validate that all questions are answered
+            if (!flavor || !sweetness || !occasion || !diet || !texture) {
+                alert('Please answer all questions before submitting.');
+                return;
+            }
+
+            // Generate cake recommendation
+            const recommendation = generateCakeRecommendation(flavor, sweetness, occasion, diet, texture);
+
+            // Display results
+>>>>>>> 74b949cec0fdddf3d830c9c7ded1edfb9d7386c6
             document.getElementById('cake-image').src = recommendation.image;
             document.getElementById('cake-name').textContent = recommendation.name;
             document.getElementById('cake-price').textContent = `$${recommendation.price}`;
             document.getElementById('cake-description').textContent = recommendation.description;
             document.getElementById('cake-reasoning').textContent = recommendation.reasoning;
 
+<<<<<<< HEAD
             closeModal();
             document.getElementById('landing-page').classList.add('hidden');
             document.getElementById('result-page').classList.remove('hidden');
@@ -565,6 +1109,231 @@
 
         // Wrap landing content
         document.querySelector('main > div').id = 'landing-page';
+=======
+            // Show result container and hide questionnaire
+            document.getElementById('result-container').style.display = 'block';
+            document.getElementById('questionnaire').style.display = 'none';
+        });
+
+        // Generate another cake button
+        document.getElementById('another-btn').addEventListener('click', function() {
+            // Reset form
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Remove selected classes
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Show questionnaire and hide result
+            document.getElementById('questionnaire').style.display = 'block';
+            document.getElementById('result-container').style.display = 'none';
+        });
+
+        // Main function to generate cake recommendation based on answers
+        function generateCakeRecommendation(flavor, sweetness, occasion, diet, texture) {
+            // AI Logic: Generate cake name based on flavor and texture
+            // This function creates unique names by combining adjectives with flavor and texture
+            const cakeName = generateCakeName(flavor, texture);
+            
+            // Determine cake category for image selection
+            const category = determineCakeCategory(flavor, texture);
+            
+            // Generate image URL using Unsplash with relevant keywords
+            const image = generateImageURL(category);
+            
+            // Generate description based on flavor, texture, and dietary needs
+            const description = generateCakeDescription(flavor, texture, diet);
+            
+            // Calculate price based on complexity, occasion, and dietary needs
+            const price = calculateCakePrice(flavor, texture, diet, occasion, sweetness);
+            
+            // Generate reasoning explanation based on user's answers
+            const reasoning = generateReasoning(flavor, sweetness, texture, occasion, diet);
+
+            return {
+                name: cakeName,
+                image: image,
+                description: description,
+                price: price,
+                reasoning: reasoning
+            };
+        }
+
+        // Function to generate cake name based on flavor and texture
+        function generateCakeName(flavor, texture) {
+            // Define adjectives based on texture to create unique names
+            const textureAdjectives = {
+                'Light & Fluffy': ['Airy', 'Bouncy', 'Whipped', 'Featherlight', 'Cloud-like'],
+                'Super Moist': ['Moist', 'Juicy', 'Decadent', 'Succulent', 'Luscious'],
+                'Dense & Rich': ['Rich', 'Decadent', 'Fudgy', 'Intense', 'Dense'],
+                'Soft & Creamy': ['Creamy', 'Silky', 'Smooth', 'Velvety', 'Tangy']
+            };
+
+            // Flavor-specific adjectives to enhance uniqueness
+            const flavorAdjectives = {
+                'Vanilla': ['Classic', 'Pure', 'Sweet', 'Aromatic'],
+                'Chocolate': ['Dark', 'Velvet', 'Gourmet', 'Truffle', 'Cocoa'],
+                'Red Velvet': ['Royal', 'Velvet', 'Ruby', 'Crimson', 'Creamy'],
+                'Citrus': ['Zesty', 'Fresh', 'Tangy', 'Citrusy', 'Bright'],
+                'Coffee': ['Espresso', 'Mocha', 'Café', 'Brew', 'Roasted'],
+                'Matcha': ['Zen', 'Green', 'Tranquil', 'Ethereal', 'Bamboo'],
+                'Berry': ['Berry', 'Fresh', 'Juicy', 'Summer', 'Wild']
+            };
+
+            // Get random adjectives based on texture and flavor
+            const textureAdj = textureAdjectives[texture][Math.floor(Math.random() * textureAdjectives[texture].length)];
+            const flavorAdj = flavorAdjectives[flavor][Math.floor(Math.random() * flavorAdjectives[flavor].length)];
+            
+            // Combine to create a unique cake name
+            return `${textureAdj} ${flavor} Delight`;
+        }
+
+        // Function to determine cake category for image selection
+        function determineCakeCategory(flavor, texture) {
+            // Map flavors to general categories that Unsplash will understand
+            const flavorCategories = {
+                'Vanilla': 'vanilla cake',
+                'Chocolate': 'chocolate cake',
+                'Red Velvet': 'red velvet cake',
+                'Citrus': 'citrus cake',
+                'Coffee': 'coffee cake',
+                'Matcha': 'matcha cake',
+                'Berry': 'berry cake'
+            };
+
+            // Add texture-related keywords for more accurate images
+            const textureKeywords = {
+                'Light & Fluffy': 'fluffy',
+                'Super Moist': 'moist',
+                'Dense & Rich': 'dense rich',
+                'Soft & Creamy': 'creamy'
+            };
+
+            // Combine flavor and texture keywords
+            return `${flavorCategories[flavor]} ${textureKeywords[texture]}`;
+        }
+
+        // Function to generate Unsplash image URL
+        function generateImageURL(category) {
+            // Create a consistent query string for Unsplash
+            const query = encodeURIComponent(category);
+            // Using a consistent image size (1080x720) and orientation
+            const width = 600;
+            const height = 400;
+            
+            // Return a Unsplash URL with the specified query and dimensions
+            return `https://source.unsplash.com/featured/${width}x${height}/?${query},cake,baking`;
+        }
+
+        // Function to generate cake description
+        function generateCakeDescription(flavor, texture, diet) {
+            // Define flavor-specific descriptors
+            const flavorDescriptors = {
+                'Vanilla': 'Our signature vanilla cake is delicately sweet with a subtle floral note, providing a comforting and classic taste.',
+                'Chocolate': 'Rich and intense chocolate flavor that satisfies any chocolate lover with layers of deep cocoa goodness.',
+                'Red Velvet': 'A classic red velvet cake with a subtle cocoa flavor and tangy cream cheese frosting, creating an elegant dessert.',
+                'Citrus': 'Bright and refreshing citrus notes with a zesty finish that awakens the senses and provides a light, clean taste.',
+                'Coffee': 'A sophisticated coffee cake with rich, aromatic coffee flavor perfectly balanced with complementary notes.',
+                'Matcha': 'Authentic matcha flavor with earthy, slightly bitter notes balanced by sweetness, creating a unique and elegant taste.',
+                'Berry': 'Fresh and vibrant berry flavors with natural sweetness and a tangy finish that brings a burst of fruitiness.'
+            };
+
+            // Define texture-specific descriptors
+            const textureDescriptors = {
+                'Light & Fluffy': 'With a light and airy texture that melts in your mouth, providing a delightful eating experience.',
+                'Super Moist': 'Exceptionally moist and tender crumb that stays fresh and juicy throughout, perfect for any celebration.',
+                'Dense & Rich': 'Dense and rich texture that provides a satisfying, indulgent bite with layers of flavor.',
+                'Soft & Creamy': 'Smooth and creamy texture that creates a luxurious sensation with every bite, balanced perfectly.'
+            };
+
+            // Define dietary-specific descriptors
+            const dietDescriptors = {
+                'None': '',
+                'Gluten-Free': 'Carefully crafted to be gluten-free without compromising on flavor or texture.',
+                'Vegan': 'Thoughtfully made with plant-based ingredients that deliver the same delicious taste and satisfaction.',
+                'Nut-Free': 'Prepared in a nut-free environment to ensure safety while maintaining all the deliciousness.',
+                'Dairy-Free': 'Made with dairy alternatives that provide the same rich flavor and moist texture you crave.'
+            };
+
+            // Combine all descriptors
+            let description = flavorDescriptors[flavor] + ' ' + textureDescriptors[texture];
+            
+            if (diet !== 'None') {
+                description += ' ' + dietDescriptors[diet];
+            }
+
+            return description;
+        }
+
+        // Function to calculate cake price based on complexity
+        function calculateCakePrice(flavor, texture, diet, occasion, sweetness) {
+            // Base price range ($35-$80)
+            let price = 35 + Math.random() * 45;
+            
+            // Adjust price based on flavor (some flavors are more expensive)
+            const flavorPriceAdjustment = {
+                'Vanilla': 0,
+                'Chocolate': 5,
+                'Red Velvet': 3,
+                'Citrus': 2,
+                'Coffee': 4,
+                'Matcha': 8,  // Matcha is typically more expensive
+                'Berry': 6     // Fresh berries add cost
+            };
+            price += flavorPriceAdjustment[flavor];
+            
+            // Adjust price based on dietary requirements (special ingredients)
+            const dietPriceAdjustment = {
+                'None': 0,
+                'Gluten-Free': 10,  // Special flour costs
+                'Vegan': 12,        // Special ingredients
+                'Nut-Free': 5,      // Special handling
+                'Dairy-Free': 8     // Dairy alternatives
+            };
+            price += dietPriceAdjustment[diet];
+            
+            // Adjust price based on occasion (formal events may warrant premium pricing)
+            const occasionPriceAdjustment = {
+                'Birthday': 3,
+                'Wedding': 15,      // Wedding cakes are premium
+                'Kids Party': 5,
+                'Morning Tea': 0,
+                'Anniversary': 8,
+                'Just Because': 2
+            };
+            price += occasionPriceAdjustment[occasion];
+            
+            // Ensure price stays within bounds and round to nearest dollar
+            price = Math.max(35, Math.min(80, Math.round(price)));
+            
+            return price;
+        }
+
+        // Function to generate reasoning explanation
+        function generateReasoning(flavor, sweetness, texture, occasion, diet) {
+            // Create a personalized explanation based on user's selections
+            let reasoning = `Based on your preference for ${flavor} flavors and a ${texture} texture, `;
+            
+            // Add information about sweetness level
+            reasoning += `we've crafted a cake that balances the perfect level of sweetness for your taste buds. `;
+            
+            // Mention the occasion
+            reasoning += `This cake is perfectly suited for a ${occasion.toLowerCase()}, offering both visual appeal and delicious taste. `;
+            
+            // Address dietary needs if applicable
+            if (diet !== 'None') {
+                reasoning += `We've carefully accommodated your ${diet.toLowerCase()} requirements without sacrificing flavor or texture. `;
+            }
+            
+            // Add final thought about the creation
+            reasoning += `The combination of these elements creates a unique and memorable dessert that reflects your personal taste preferences.`;
+            
+            return reasoning;
+        }
+>>>>>>> 74b949cec0fdddf3d830c9c7ded1edfb9d7386c6
     </script>
 </body>
 </html>
