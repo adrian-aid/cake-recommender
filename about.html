@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Perfect Slice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                        },
+                        peach: {
+                            DEFAULT: "hsl(var(--peach))",
+                            light: "hsl(var(--peach-light))",
+                        },
+                        cream: "hsl(var(--cream))",
+                        rose: {
+                            DEFAULT: "hsl(var(--rose))",
+                            dark: "hsl(var(--rose-dark))",
+                        },
+                        lavender: {
+                            DEFAULT: "hsl(var(--lavender))",
+                            dark: "hsl(var(--lavender-dark))",
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 240 10% 3.9%;
+                --primary: 222.2 47.4% 11.2%;
+                --primary-foreground: 0 0% 100%;
+                --secondary: 240 5.9% 10%;
+                --secondary-foreground: 0 0% 100%;
+                --destructive: 0 84.2% 60.2%;
+                --destructive-foreground: 0 0% 98%;
+                --muted: 240 4.8% 95.9%;
+                --muted-foreground: 240 3.8% 46.1%;
+                --accent: 240 5.9% 90%;
+                --accent-foreground: 240 5.9% 10%;
+                --popover: 0 0% 100%;
+                --popover-foreground: 240 10% 3.9%;
+                --card: 0 0% 100%;
+                --card-foreground: 240 10% 3.9%;
+                --peach: 25 85% 65%;
+                --peach-light: 25 85% 90%;
+                --cream: 42 94% 85%;
+                --rose: 340 70% 70%;
+                --rose-dark: 340 70% 50%;
+                --lavender: 240 45% 90%;
+                --lavender-dark: 240 45% 70%;
+            }
+            .dark {
+                --background: 240 10% 3.9%;
+                --foreground: 0 0% 98%;
+                --primary: 222.2 47.4% 11.2%;
+                --primary-foreground: 0 0% 100%;
+                --secondary: 240 5.9% 10%;
+                --secondary-foreground: 0 0% 100%;
+                --destructive: 0 62.8% 30.6%;
+                --destructive-foreground: 0 0% 100%;
+                --muted: 240 3.7% 15.9%;
+                --muted-foreground: 240 5% 64.9%;
+                --accent: 240 3.7% 15.9%;
+                --accent-foreground: 0 0% 98%;
+                --popover: 240 10% 3.9%;
+                --popover-foreground: 0 0% 98%;
+                --card: 240 10% 3.9%;
+                --card-foreground: 0 0% 98%;
+                --peach: 25 85% 65%;
+                --peach-light: 25 85% 35%;
+                --cream: 42 94% 85%;
+                --rose: 340 70% 70%;
+                --rose-dark: 340 70% 50%;
+                --lavender: 240 45% 90%;
+                --lavender-dark: 240 45% 70%;
+            }
+        }
+        @layer base {
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: hsl(var(--background));
+                color: hsl(var(--foreground));
+            }
+            .bg-gray-100 {
+                background-color: hsl(var(--background)) !important;
+            }
+            .text-gray-900 {
+                color: hsl(var(--foreground)) !important;
+            }
+            .text-gray-600 {
+                color: hsl(calc(var(--foreground) + 20%)) !important;
+            }
+            .text-gray-700 {
+                color: hsl(calc(var(--foreground) + 10%)) !important;
+            }
+            h1, h2, h3, h4 {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="min-h-screen flex flex-col">
+        <header class="bg-white shadow">
+            <div class="container mx-auto px-4 py-4">
+                <nav class="flex justify-between items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-900">Perfect Slice</a>
+                    <div class="flex space-x-6">
+                        <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
+                        <a href="form.html" class="text-gray-600 hover:text-gray-900 font-medium">Full Form</a>
+                        <a href="about.html" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main class="flex-grow">
+            <div class="container mx-auto px-4 py-12">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Perfect Slice</h1>
+                    <p class="text-lg text-gray-700">Your personalized cake recommendation experience</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200">
+                    <section class="mb-10">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
+                        <p class="text-gray-700 mb-4">
+                            Perfect Slice was born from a simple idea: everyone deserves a cake that perfectly matches their taste and dietary needs.
+                            Our team of passionate bakers and developers came together to create an AI-powered recommendation system that takes
+                            the guesswork out of choosing the perfect cake.
+                        </p>
+                        <p class="text-gray-700">
+                            Whether you're planning a birthday, wedding, anniversary, or just want to treat yourself, Perfect Slice helps you
+                            find a cake that brings joy to your special moments.
+                        </p>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">How It Works</h2>
+                        <p class="text-gray-700 mb-4">
+                            Our recommendation engine considers multiple factors to suggest the perfect cake for you:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-semibold">Flavor Preferences</span> - From classic vanilla to unique matcha</li>
+                            <li><span class="font-semibold">Sweetness Level</span> - Customized to your taste</li>
+                            <li><span class="font-semibold">Occasion</span> - Tailored for your specific event</li>
+                            <li><span class="font-semibold">Dietary Needs</span> - Accommodating multiple restrictions</li>
+                            <li><span class="font-semibold">Texture Preference</span> - Light & fluffy to dense & rich</li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Commitment</h2>
+                        <p class="text-gray-700">
+                            We're committed to helping people discover delicious cakes that fit their unique preferences and dietary requirements.
+                            Our algorithm continuously learns and improves to provide recommendations that bring smiles to faces around the world.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                        <p class="text-gray-700">
+                            Have questions or feedback? We'd love to hear from you!
+                            Reach out to us at <a href="mailto:info@perfectslice.example" class="text-blue-600 hover:underline">info@perfectslice.example</a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-white border-t py-8 mt-auto">
+            <div class="container mx-auto px-4">
+                <div class="text-center">
+                    <p class="text-gray-600">&copy; 2023 Perfect Slice. All rights reserved.</p>
+                    <div class="mt-4 flex justify-center space-x-6">
+                        <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
+                        <a href="form.html" class="text-gray-600 hover:text-gray-900 font-medium">Full Form</a>
+                        <a href="about.html" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
