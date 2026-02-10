@@ -3,59 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Form - Perfect Slice</title>
+    <title>Find Your Cake - Perfect Slice</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'heading': ['Inter', 'sans-serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                        'heading': ['Outfit', 'sans-serif'],
                     },
                     colors: {
-                        primary: {
-                            DEFAULT: "hsl(var(--primary))",
-                            foreground: "hsl(var(--primary-foreground))",
+                        'space-dark': '#0a0a0f',
+                        'space-dark-light': '#12121a',
+                        'space-dark-card': '#1a1a24',
+                        'neon-pink': '#ff2d95',
+                        'neon-purple': '#a855f7',
+                        'neon-blue': '#3b82f6',
+                        'neon-cyan': '#06b6d4',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         },
-                        secondary: {
-                            DEFAULT: "hsl(var(--secondary))",
-                            foreground: "hsl(var(--secondary-foreground))",
-                        },
-                        destructive: {
-                            DEFAULT: "hsl(var(--destructive))",
-                            foreground: "hsl(var(--destructive-foreground))",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(var(--muted))",
-                            foreground: "hsl(var(--muted-foreground))",
-                        },
-                        accent: {
-                            DEFAULT: "hsl(var(--accent))",
-                            foreground: "hsl(var(--accent-foreground))",
-                        },
-                        popover: {
-                            DEFAULT: "hsl(var(--popover))",
-                            foreground: "hsl(var(--popover-foreground))",
-                        },
-                        card: {
-                            DEFAULT: "hsl(var(--card))",
-                            foreground: "hsl(var(--card-foreground))",
-                        },
-                        peach: {
-                            DEFAULT: "hsl(var(--peach))",
-                            light: "hsl(var(--peach-light))",
-                        },
-                        cream: "hsl(var(--cream))",
-                        rose: {
-                            DEFAULT: "hsl(var(--rose))",
-                            dark: "hsl(var(--rose-dark))",
-                        },
-                        lavender: {
-                            DEFAULT: "hsl(var(--lavender))",
-                            dark: "hsl(var(--lavender-dark))",
-                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)' },
+                            '50%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.8)' },
+                        }
                     }
                 }
             }
@@ -63,336 +44,321 @@
     </script>
     <style type="text/tailwindcss">
         @layer base {
-            :root {
-                --background: 0 0% 98%; /* Very light cream/white */
-                --foreground: 240 5% 20%; /* Soft dark gray */
-                --primary: 330 60% 85%; /* Soft pink */
-                --primary-foreground: 240 5% 15%; /* Darker gray */
-                --secondary: 200 30% 90%; /* Soft blue */
-                --secondary-foreground: 240 5% 15%;
-                --destructive: 0 40% 85%; /* Soft red */
-                --destructive-foreground: 0 0% 10%;
-                --muted: 60 15% 95%; /* Very light beige */
-                --muted-foreground: 240 5% 40%; /* Medium gray */
-                --accent: 120 25% 90%; /* Soft green */
-                --accent-foreground: 240 5% 15%;
-                --popover: 0 0% 100%; /* Pure white */
-                --popover-foreground: 240 10% 3.9%;
-                --card: 0 0% 99%; /* Almost white */
-                --card-foreground: 240 10% 3.9%;
-                --peach: 35 40% 90%; /* Soft peach */
-                --peach-light: 35 30% 95%; /* Very light peach */
-                --cream: 50 30% 95%; /* Soft cream */
-                --rose: 340 35% 90%; /* Soft rose */
-                --rose-dark: 340 40% 70%; /* Muted rose */
-                --lavender: 250 25% 90%; /* Soft lavender */
-                --lavender-dark: 250 30% 75%; /* Muted lavender */
+            body {
+                font-family: 'Outfit', sans-serif;
+                background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+                min-height: 100vh;
             }
-            .dark {
-                --background: 240 10% 7%; /* Slightly lighter dark */
-                --foreground: 0 0% 95%; /* Lighter text */
-                --primary: 330 50% 70%; /* Muted pink for dark mode */
-                --primary-foreground: 0 0% 98%;
-                --secondary: 200 20% 30%; /* Muted soft blue */
-                --secondary-foreground: 0 0% 98%;
-                --destructive: 0 30% 60%; /* Softer red */
-                --destructive-foreground: 0 0% 98%;
-                --muted: 60 10% 20%; /* Darker beige */
-                --muted-foreground: 0 0% 85%;
-                --accent: 120 20% 35%; /* Muted green */
-                --accent-foreground: 0 0% 98%;
-                --popover: 240 5% 15%; /* Darker background */
-                --popover-foreground: 0 0% 95%;
-                --card: 240 8% 12%; /* Darker card */
-                --card-foreground: 0 0% 95%;
-                --peach: 35 25% 40%; /* Muted peach */
-                --peach-light: 35 30% 60%;
-                --cream: 50 25% 50%; /* Muted cream */
-                --rose: 340 25% 60%; /* Muted rose */
-                --rose-dark: 340 30% 40%;
-                --lavender: 250 20% 40%; /* Muted lavender */
-                --lavender-dark: 250 25% 50%;
+            
+            .glass-card {
+                background: rgba(26, 26, 36, 0.8);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(168, 85, 247, 0.2);
+            }
+
+            .glow-effect {
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0.3),
+                            0 0 60px rgba(168, 85, 247, 0.1);
+            }
+
+            .text-gradient {
+                background: linear-gradient(135deg, #ff2d95, #a855f7, #3b82f6);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .border-gradient {
+                border: 1px solid transparent;
+                background: linear-gradient(#1a1a24, #1a1a24) padding-box,
+                            linear-gradient(135deg, #ff2d95, #a855f7) border-box;
+            }
+
+            .floating-decoration {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(80px);
+                opacity: 0.4;
+                animation: float 8s ease-in-out infinite;
             }
         }
-        @layer base {
-            body {
-                font-family: 'Inter', sans-serif;
-                background-color: hsl(var(--background));
-                color: hsl(var(--foreground));
-            }
-            .bg-gray-100 {
-                background-color: hsl(var(--background)) !important;
-            }
-            .text-gray-900 {
-                color: hsl(var(--foreground)) !important;
-            }
-            .text-gray-600 {
-                color: hsl(calc(var(--foreground) + 20%)) !important;
-            }
-            .text-gray-700 {
-                color: hsl(calc(var(--foreground) + 10%)) !important;
-            }
-            h1, h2, h3, h4 {
-                font-family: 'Inter', sans-serif;
-            }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .option-card {
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .option-card.selected {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(255, 45, 149, 0.2));
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff2d95, #a855f7);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #a855f7;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff2d95, #a855f7);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <div class="min-h-screen flex flex-col">
-        <header class="bg-white shadow">
+<body class="text-gray-100 overflow-x-hidden">
+    <!-- Floating Decorations -->
+    <div class="floating-decoration w-96 h-96 bg-purple-600 top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="floating-decoration w-80 h-80 bg-pink-600 top-1/4 right-0 translate-x-1/3" style="animation-delay: 1s;"></div>
+
+    <div class="min-h-screen flex flex-col relative z-10">
+        <header class="glass-card sticky top-0 z-50">
             <div class="container mx-auto px-4 py-4">
                 <nav class="flex justify-between items-center">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">Perfect Slice</a>
-                    <div class="flex space-x-6">
-                        <a href="index.html" class="text-gray-600 hover:text-gray-900 font-medium">Home</a>
-                        <a href="form.html" class="text-blue-600 hover:text-blue-800 font-medium">Full Form</a>
-                        <a href="about.html" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                    <a href="index.html" class="text-2xl font-bold">
+                        <span class="text-gradient">Perfect</span>
+                        <span class="text-white">Slice</span>
+                    </a>
+                    <div class="flex space-x-8">
+                        <a href="index.html" class="nav-link font-medium text-gray-300">Home</a>
+                        <a href="form.html" class="nav-link font-medium text-white">Find Cake</a>
+                        <a href="about.html" class="nav-link font-medium text-gray-300">About</a>
                     </div>
                 </nav>
             </div>
         </header>
 
         <main class="flex-grow">
-            <div class="container mx-auto px-4 py-8">
+            <div class="container mx-auto px-4 py-12">
+                <!-- Header -->
                 <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Perfect Slice Cake Form</h1>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Complete cake preference form to find your ideal cake</p>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                        <span class="text-gradient">Find Your</span>
+                        <span class="text-white"> Perfect Cake</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                        Answer a few questions and our AI will recommend the perfect cake for you
+                    </p>
                 </div>
 
-                <div class="form-container bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto mb-8 border border-gray-200" id="questionnaire">
+                <!-- Questionnaire -->
+                <div class="glass-card rounded-2xl p-8 max-w-4xl mx-auto mb-8 border-gradient" id="questionnaire">
+                    <!-- Flavor Question -->
                     <div class="question mb-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">What kind of flavours make you happiest?</h3>
-                        <div class="options flex flex-wrap justify-center gap-4">
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-vanilla" name="flavor" value="Vanilla" class="hidden">
-                                <label for="flavor-vanilla" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍦</span>
-                                    Vanilla
-                                </label>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center text-sm">1</span>
+                            What flavors make you happiest?
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Vanilla">
+                                <span class="text-3xl block mb-2">🍦</span>
+                                <span class="text-white font-medium">Vanilla</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-chocolate" name="flavor" value="Chocolate" class="hidden">
-                                <label for="flavor-chocolate" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍫</span>
-                                    Chocolate
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Chocolate">
+                                <span class="text-3xl block mb-2">🍫</span>
+                                <span class="text-white font-medium">Chocolate</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-red-velvet" name="flavor" value="Red Velvet" class="hidden">
-                                <label for="flavor-red-velvet" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">❤️</span>
-                                    Red Velvet
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Red Velvet">
+                                <span class="text-3xl block mb-2">❤️</span>
+                                <span class="text-white font-medium">Red Velvet</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-citrus" name="flavor" value="Citrus" class="hidden">
-                                <label for="flavor-citrus" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍋</span>
-                                    Citrus
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Citrus">
+                                <span class="text-3xl block mb-2">🍋</span>
+                                <span class="text-white font-medium">Citrus</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-coffee" name="flavor" value="Coffee" class="hidden">
-                                <label for="flavor-coffee" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">☕</span>
-                                    Coffee
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Coffee">
+                                <span class="text-3xl block mb-2">☕</span>
+                                <span class="text-white font-medium">Coffee</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-matcha" name="flavor" value="Matcha" class="hidden">
-                                <label for="flavor-matcha" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍵</span>
-                                    Matcha
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Matcha">
+                                <span class="text-3xl block mb-2">🍵</span>
+                                <span class="text-white font-medium">Matcha</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="flavor-berry" name="flavor" value="Berry" class="hidden">
-                                <label for="flavor-berry" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍓</span>
-                                    Berry
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Berry">
+                                <span class="text-3xl block mb-2">🍓</span>
+                                <span class="text-white font-medium">Berry</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Sweetness Question -->
                     <div class="question mb-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">How sweet do you like your treats?</h3>
-                        <div class="options flex flex-wrap justify-center gap-4">
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="sweetness-low" name="sweetness" value="Low" class="hidden">
-                                <label for="sweetness-low" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍯</span>
-                                    Low
-                                </label>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-sm">2</span>
+                            How sweet do you like your treats?
+                        </h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="Low">
+                                <span class="text-3xl block mb-2">🍯</span>
+                                <span class="text-white font-medium">Low</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="sweetness-medium" name="sweetness" value="Medium" class="hidden">
-                                <label for="sweetness-medium" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍯🍯</span>
-                                    Medium
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="Medium">
+                                <span class="text-3xl block mb-2">🍯🍯</span>
+                                <span class="text-white font-medium">Medium</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="sweetness-high" name="sweetness" value="High" class="hidden">
-                                <label for="sweetness-high" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍯🍯🍯</span>
-                                    High
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="High">
+                                <span class="text-3xl block mb-2">🍯🍯🍯</span>
+                                <span class="text-white font-medium">High</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Occasion Question -->
                     <div class="question mb-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">What's the special occasion?</h3>
-                        <div class="options flex flex-wrap justify-center gap-4">
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="occasion-birthday" name="occasion" value="Birthday" class="hidden">
-                                <label for="occasion-birthday" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🎂</span>
-                                    Birthday
-                                </label>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-sm">3</span>
+                            What's the special occasion?
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Birthday">
+                                <span class="text-3xl block mb-2">🎂</span>
+                                <span class="text-white font-medium">Birthday</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="occasion-wedding" name="occasion" value="Wedding" class="hidden">
-                                <label for="occasion-wedding" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">💒</span>
-                                    Wedding
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Wedding">
+                                <span class="text-3xl block mb-2">💒</span>
+                                <span class="text-white font-medium">Wedding</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="occasion-kids-party" name="occasion" value="Kids Party" class="hidden">
-                                <label for="occasion-kids-party" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🎈</span>
-                                    Kids Party
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Kids Party">
+                                <span class="text-3xl block mb-2">🎈</span>
+                                <span class="text-white font-medium">Kids Party</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="occasion-morning-tea" name="occasion" value="Morning Tea" class="hidden">
-                                <label for="occasion-morning-tea" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">☕</span>
-                                    Morning Tea
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Morning Tea">
+                                <span class="text-3xl block mb-2">☕</span>
+                                <span class="text-white font-medium">Morning Tea</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="occasion-anniversary" name="occasion" value="Anniversary" class="hidden">
-                                <label for="occasion-anniversary" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">💝</span>
-                                    Anniversary
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Anniversary">
+                                <span class="text-3xl block mb-2">💝</span>
+                                <span class="text-white font-medium">Anniversary</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="occasion-just-because" name="occasion" value="Just Because" class="hidden">
-                                <label for="occasion-just-because" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">✨</span>
-                                    Just Because
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Just Because">
+                                <span class="text-3xl block mb-2">✨</span>
+                                <span class="text-white font-medium">Just Because</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Dietary Question -->
                     <div class="question mb-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">Any dietary needs we should care for?</h3>
-                        <div class="options flex flex-wrap justify-center gap-4">
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="checkbox" id="diet-none" name="diet" value="None" class="hidden">
-                                <label for="diet-none" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">✔️</span>
-                                    None
-                                </label>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-green-500 flex items-center justify-center text-sm">4</span>
+                            Any dietary needs?
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="None">
+                                <span class="text-3xl block mb-2">✓</span>
+                                <span class="text-white font-medium">None</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="checkbox" id="diet-gluten-free" name="diet" value="Gluten-Free" class="hidden">
-                                <label for="diet-gluten-free" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🌾</span>
-                                    Gluten-Free
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Gluten-Free">
+                                <span class="text-3xl block mb-2">🌾</span>
+                                <span class="text-white font-medium">Gluten-Free</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="checkbox" id="diet-vegan" name="diet" value="Vegan" class="hidden">
-                                <label for="diet-vegan" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🌱</span>
-                                    Vegan
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Vegan">
+                                <span class="text-3xl block mb-2">🌱</span>
+                                <span class="text-white font-medium">Vegan</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="checkbox" id="diet-nut-free" name="diet" value="Nut-Free" class="hidden">
-                                <label for="diet-nut-free" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🥜</span>
-                                    Nut-Free
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Nut-Free">
+                                <span class="text-3xl block mb-2">🥜</span>
+                                <span class="text-white font-medium">Nut-Free</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="checkbox" id="diet-dairy-free" name="diet" value="Dairy-Free" class="hidden">
-                                <label for="diet-dairy-free" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🐄</span>
-                                    Dairy-Free
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500" data-value="Dairy-Free">
+                                <span class="text-3xl block mb-2">🐄</span>
+                                <span class="text-white font-medium">Dairy-Free</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Texture Question -->
                     <div class="question mb-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">What texture are you craving?</h3>
-                        <div class="options flex flex-wrap justify-center gap-4">
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="texture-light" name="texture" value="Light & Fluffy" class="hidden">
-                                <label for="texture-light" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">☁️</span>
-                                    Light & Fluffy
-                                </label>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-pink-500 flex items-center justify-center text-sm">5</span>
+                            What texture are you craving?
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="Light & Fluffy">
+                                <span class="text-3xl block mb-2">☁️</span>
+                                <span class="text-white font-medium">Light & Fluffy</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="texture-moist" name="texture" value="Super Moist" class="hidden">
-                                <label for="texture-moist" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">💧</span>
-                                    Super Moist
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="Super Moist">
+                                <span class="text-3xl block mb-2">💧</span>
+                                <span class="text-white font-medium">Super Moist</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="texture-dense" name="texture" value="Dense & Rich" class="hidden">
-                                <label for="texture-dense" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">⚖️</span>
-                                    Dense & Rich
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="Dense & Rich">
+                                <span class="text-3xl block mb-2">⚖️</span>
+                                <span class="text-white font-medium">Dense & Rich</span>
                             </div>
-                            <div class="option-card w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.66rem)] bg-gray-100 border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
-                                <input type="radio" id="texture-soft" name="texture" value="Soft & Creamy" class="hidden">
-                                <label for="texture-soft" class="cursor-pointer block">
-                                    <span class="text-2xl block mb-2">🍦</span>
-                                    Soft & Creamy
-                                </label>
+                            <div class="option-card bg-space-dark-card rounded-xl p-4 cursor-pointer border border-gray-700 hover:border-purple-500 text-center" data-value="Soft & Creamy">
+                                <span class="text-3xl block mb-2">🍦</span>
+                                <span class="text-white font-medium">Soft & Creamy</span>
                             </div>
                         </div>
                     </div>
 
-                    <button id="submit-btn" class="submit-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 w-full max-w-xs mx-auto block">Get Your Cake Recommendation</button>
+                    <button id="submit-btn" class="btn-primary text-white font-semibold py-4 px-10 rounded-full text-lg w-full mt-8">
+                        Find My Perfect Cake ✨
+                    </button>
                 </div>
 
-                <div class="result-container max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8 hidden" id="result-container">
-                    <div class="cake-card text-center">
-                        <img id="cake-image" class="w-full max-w-xs h-64 object-cover mx-auto rounded mb-6" src="" alt="Recommended Cake">
-                        <h2 id="cake-name" class="text-2xl font-bold text-gray-900 mb-2"></h2>
-                        <div id="cake-price" class="text-xl text-blue-600 font-bold mb-4"></div>
-                        <p id="cake-description" class="text-gray-700 mb-4"></p>
-                        <div class="cake-reasoning bg-gray-100 p-4 rounded">
-                            <h4 class="font-bold text-gray-900 mb-2">Why we chose this cake:</h4>
-                            <p id="cake-reasoning"></p>
+                <!-- Result Container -->
+                <div class="glass-card rounded-2xl p-8 max-w-2xl mx-auto hidden" id="result-container">
+                    <div class="text-center">
+                        <img id="cake-image" class="w-full max-w-xs h-64 object-cover mx-auto rounded-xl mb-6" src="" alt="Recommended Cake">
+                        <h2 id="cake-name" class="text-3xl font-bold text-white mb-2"></h2>
+                        <div id="cake-price" class="text-2xl font-bold text-gradient mb-4"></div>
+                        <p id="cake-description" class="text-gray-300 mb-6"></p>
+                        <div class="bg-space-dark-card rounded-xl p-6 text-left">
+                            <h4 class="font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="text-purple-500">💡</span> Why we chose this cake:
+                            </h4>
+                            <p id="cake-reasoning" class="text-gray-300"></p>
                         </div>
-                        <button class="another-btn bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 mt-6" id="another-btn">Try Another Cake</button>
+                        <button id="another-btn" class="glass-card text-white font-semibold py-3 px-6 rounded-full mt-6 hover:border-purple-500 transition-all">
+                            Try Another Cake
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
 
-        <footer class="bg-white border-t py-8 mt-auto">
+        <footer class="glass-card py-8 mt-auto">
             <div class="container mx-auto px-4">
                 <div class="text-center">
-                    <p class="text-gray-600">&copy; 2023 Perfect Slice. All rights reserved.</p>
+                    <p class="text-gray-400">&copy; 2024 Perfect Slice. All rights reserved.</p>
                     <div class="mt-4 flex justify-center space-x-6">
-                        <a href="index.html" class="text-gray-600 hover:text-gray-900 font-medium">Home</a>
-                        <a href="form.html" class="text-blue-600 hover:text-blue-800 font-medium">Full Form</a>
-                        <a href="about.html" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                        <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                        <a href="form.html" class="text-gray-400 hover:text-white transition-colors">Find Cake</a>
+                        <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
                     </div>
                 </div>
             </div>
@@ -400,342 +366,193 @@
     </div>
 
     <script>
-        // Handle option card selection for Tailwind version
+        // State management
+        const state = {
+            flavor: null,
+            sweetness: null,
+            occasion: null,
+            diet: null,
+            texture: null
+        };
+
+        // Option card selection
         document.querySelectorAll('.option-card').forEach(card => {
             card.addEventListener('click', function() {
-                const input = this.querySelector('input');
+                const value = this.dataset.value;
+                const questionDiv = this.closest('.question');
+                const questionNum = questionDiv.querySelector('h3 span').textContent;
                 
-                // Handle dietary options differently (multi-select) vs other options (single-select)
-                if (input.type === 'checkbox') {
-                    // For dietary options, toggle the checkbox state
-                    input.checked = !input.checked;
-
-                    // For "None" option, uncheck all others when it's selected
-                    if (input.id === 'diet-none' && input.checked) {
-                        document.querySelectorAll('input[name="diet"]').forEach(dietInput => {
-                            if (dietInput.id !== 'diet-none') {
-                                dietInput.checked = false;
-                                dietInput.parentElement.classList.remove('border-blue-500', 'bg-blue-50');
-                            }
-                        });
-                    } else if (input.id !== 'diet-none') {
-                        // If any other dietary option is selected, uncheck "None"
-                        document.getElementById('diet-none').checked = false;
-                        document.getElementById('diet-none').parentElement.classList.remove('border-blue-500', 'bg-blue-50');
+                // Determine which field this is
+                let fieldName;
+                if (questionNum === '1') fieldName = 'flavor';
+                else if (questionNum === '2') fieldName = 'sweetness';
+                else if (questionNum === '3') fieldName = 'occasion';
+                else if (questionNum === '4') fieldName = 'diet';
+                else if (questionNum === '5') fieldName = 'texture';
+                
+                // Handle dietary (multi-select) vs others (single-select)
+                if (fieldName === 'diet') {
+                    // Toggle selection
+                    this.classList.toggle('selected');
+                    const currentDiet = state.diet || [];
+                    if (this.classList.contains('selected')) {
+                        if (value === 'None') {
+                            // If None is selected, clear all others
+                            questionDiv.querySelectorAll('.option-card').forEach(c => {
+                                if (c.dataset.value !== 'None') {
+                                    c.classList.remove('selected');
+                                    const idx = currentDiet.indexOf(c.dataset.value);
+                                    if (idx > -1) currentDiet.splice(idx, 1);
+                                }
+                            });
+                            state.diet = ['None'];
+                        } else {
+                            // Remove None if other is selected
+                            const noneCard = questionDiv.querySelector('[data-value="None"]');
+                            if (noneCard) noneCard.classList.remove('selected');
+                            const noneIdx = currentDiet.indexOf('None');
+                            if (noneIdx > -1) currentDiet.splice(noneIdx, 1);
+                            currentDiet.push(value);
+                            state.diet = currentDiet;
+                        }
+                    } else {
+                        const idx = currentDiet.indexOf(value);
+                        if (idx > -1) currentDiet.splice(idx, 1);
+                        state.diet = currentDiet.length > 0 ? currentDiet : ['None'];
                     }
                 } else {
-                    // For radio options (single-select), uncheck all others in the group
-                    const allInputs = this.parentElement.querySelectorAll('input[type="radio"]');
-                    allInputs.forEach(inp => {
-                        inp.checked = false;
-                        inp.parentElement.classList.remove('border-blue-500', 'bg-blue-50');
-                    });
-
-                    // Then check the clicked one
-                    input.checked = true;
+                    // Single select
+                    questionDiv.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    state[fieldName] = value;
                 }
-
-                // Update visual state based on checked state
-                this.parentElement.querySelectorAll('.option-card').forEach(c => {
-                    const inp = c.querySelector('input');
-                    if (inp.checked) {
-                        c.classList.add('border-blue-500', 'bg-blue-50');
-                    } else {
-                        c.classList.remove('border-blue-500', 'bg-blue-50');
-                    }
-                });
             });
         });
 
-        // Submit button event listener
+        // Submit button
         document.getElementById('submit-btn').addEventListener('click', function() {
-            // Get selected values
-            const flavor = document.querySelector('input[name="flavor"]:checked');
-            const sweetness = document.querySelector('input[name="sweetness"]:checked');
-            const occasion = document.querySelector('input[name="occasion"]:checked');
-            const texture = document.querySelector('input[name="texture"]:checked');
-
-            if (!flavor || !sweetness || !occasion || !texture) {
-                alert('Please answer all questions before submitting.');
+            if (!state.flavor || !state.sweetness || !state.occasion || !state.texture) {
+                alert('Please answer all questions!');
                 return;
             }
 
-            // Handle multiple dietary selections - get all checked diet options
-            const dietInputs = document.querySelectorAll('input[name="diet"]:checked');
-            const dietValues = Array.from(dietInputs).map(input => input.value);
-            const diet = dietValues.length > 0 ? dietValues.join(', ') : 'None';
+            const diet = state.diet ? state.diet.join(', ') : 'None';
 
-            // Generate cake recommendation
             const recommendation = generateCakeRecommendation(
-                flavor.value,
-                sweetness.value,
-                occasion.value,
+                state.flavor,
+                state.sweetness,
+                state.occasion,
                 diet,
-                texture.value
+                state.texture
             );
 
-            // Display results
             document.getElementById('cake-image').src = recommendation.image;
             document.getElementById('cake-name').textContent = recommendation.name;
             document.getElementById('cake-price').textContent = `$${recommendation.price}`;
             document.getElementById('cake-description').textContent = recommendation.description;
             document.getElementById('cake-reasoning').textContent = recommendation.reasoning;
 
-            // Show result container and hide questionnaire
-            document.getElementById('result-container').classList.remove('hidden');
             document.getElementById('questionnaire').classList.add('hidden');
+            document.getElementById('result-container').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Generate another cake button
+        // Another cake button
         document.getElementById('another-btn').addEventListener('click', function() {
-            // Reset form - uncheck all inputs except the "diet-none" option which should be checked by default
-            document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
-                if (input.name === 'diet') {
-                    if (input.id === 'diet-none') {
-                        input.checked = true;
-                        input.parentElement.classList.add('border-blue-500', 'bg-blue-50');
-                    } else {
-                        input.checked = false;
-                        input.parentElement.classList.remove('border-blue-500', 'bg-blue-50');
-                    }
-                } else {
-                    input.checked = false;
-                    input.parentElement.classList.remove('border-blue-500', 'bg-blue-50');
-                }
+            // Reset state
+            state.flavor = null;
+            state.sweetness = null;
+            state.occasion = null;
+            state.diet = null;
+            state.texture = null;
+
+            // Reset UI
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
             });
 
-            // Show questionnaire and hide result
-            document.getElementById('questionnaire').classList.remove('hidden');
             document.getElementById('result-container').classList.add('hidden');
+            document.getElementById('questionnaire').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Main function to generate cake recommendation based on answers
+        // Cake recommendation logic
         function generateCakeRecommendation(flavor, sweetness, occasion, diet, texture) {
-            // AI Logic: Generate cake name based on flavor and texture
-            // This function creates unique names by combining adjectives with flavor and texture
-            const cakeName = generateCakeName(flavor, texture);
-            
-            // Determine cake category for image selection
-            const category = determineCakeCategory(flavor, texture);
-            
-            // Generate image URL using Unsplash with relevant keywords
-            const image = generateImageURL(category);
-            
-            // Generate description based on flavor, texture, and dietary needs
-            const description = generateCakeDescription(flavor, texture, diet);
-            
-            // Calculate price based on complexity, occasion, and dietary needs
-            const price = calculateCakePrice(flavor, texture, diet, occasion, sweetness);
-            
-            // Generate reasoning explanation based on user's answers
-            const reasoning = generateReasoning(flavor, sweetness, texture, occasion, diet);
-
-            return {
-                name: cakeName,
-                image: image,
-                description: description,
-                price: price,
-                reasoning: reasoning
-            };
-        }
-
-        // Function to generate cake name based on flavor and texture
-        function generateCakeName(flavor, texture) {
-            // Define adjectives based on texture to create unique names
-            const textureAdjectives = {
-                'Light & Fluffy': ['Airy', 'Bouncy', 'Whipped', 'Featherlight', 'Cloud-like'],
-                'Super Moist': ['Moist', 'Juicy', 'Decadent', 'Succulent', 'Luscious'],
-                'Dense & Rich': ['Rich', 'Decadent', 'Fudgy', 'Intense', 'Dense'],
-                'Soft & Creamy': ['Creamy', 'Silky', 'Smooth', 'Velvety', 'Tangy']
-            };
-
-            // Flavor-specific adjectives to enhance uniqueness
-            const flavorAdjectives = {
-                'Vanilla': ['Classic', 'Pure', 'Sweet', 'Aromatic'],
-                'Chocolate': ['Dark', 'Velvet', 'Gourmet', 'Truffle', 'Cocoa'],
-                'Red Velvet': ['Royal', 'Velvet', 'Ruby', 'Crimson', 'Creamy'],
-                'Citrus': ['Zesty', 'Fresh', 'Tangy', 'Citrusy', 'Bright'],
-                'Coffee': ['Espresso', 'Mocha', 'Café', 'Brew', 'Roasted'],
-                'Matcha': ['Zen', 'Green', 'Tranquil', 'Ethereal', 'Bamboo'],
-                'Berry': ['Berry', 'Fresh', 'Juicy', 'Summer', 'Wild']
-            };
-
-            // Get random adjectives based on texture and flavor
-            const textureAdj = textureAdjectives[texture][Math.floor(Math.random() * textureAdjectives[texture].length)];
-            const flavorAdj = flavorAdjectives[flavor][Math.floor(Math.random() * flavorAdjectives[flavor].length)];
-            
-            // Combine to create a unique cake name
-            return `${textureAdj} ${flavor} Delight`;
-        }
-
-        // Function to determine cake category for image selection
-        function determineCakeCategory(flavor, texture) {
-            // Map flavors to general categories that Unsplash will understand
-            const flavorCategories = {
-                'Vanilla': 'vanilla cake',
-                'Chocolate': 'chocolate cake',
-                'Red Velvet': 'red velvet cake',
-                'Citrus': 'citrus cake',
-                'Coffee': 'coffee cake',
-                'Matcha': 'matcha cake',
-                'Berry': 'berry cake'
-            };
-
-            // Add texture-related keywords for more accurate images
-            const textureKeywords = {
-                'Light & Fluffy': 'fluffy',
-                'Super Moist': 'moist',
-                'Dense & Rich': 'dense rich',
-                'Soft & Creamy': 'creamy'
-            };
-
-            // Combine flavor and texture keywords
-            return `${flavorCategories[flavor]} ${textureKeywords[texture]}`;
-        }
-
-        // Function to generate Unsplash image URL
-        function generateImageURL(category) {
-            // Create a consistent query string for Unsplash
-            const query = encodeURIComponent(category);
-            // Using a consistent image size (1080x720) and orientation
-            const width = 600;
-            const height = 400;
-            
-            // Return a Unsplash URL with the specified query and dimensions
-            return `https://source.unsplash.com/featured/${width}x${height}/?${query},cake,baking`;
-        }
-
-        // Function to generate cake description
-        function generateCakeDescription(flavor, texture, diet) {
-            // Define flavor-specific descriptors
-            const flavorDescriptors = {
-                'Vanilla': 'Our signature vanilla cake is delicately sweet with a subtle floral note, providing a comforting and classic taste.',
-                'Chocolate': 'Rich and intense chocolate flavor that satisfies any chocolate lover with layers of deep cocoa goodness.',
-                'Red Velvet': 'A classic red velvet cake with a subtle cocoa flavor and tangy cream cheese frosting, creating an elegant dessert.',
-                'Citrus': 'Bright and refreshing citrus notes with a zesty finish that awakens the senses and provides a light, clean taste.',
-                'Coffee': 'A sophisticated coffee cake with rich, aromatic coffee flavor perfectly balanced with complementary notes.',
-                'Matcha': 'Authentic matcha flavor with earthy, slightly bitter notes balanced by sweetness, creating a unique and elegant taste.',
-                'Berry': 'Fresh and vibrant berry flavors with natural sweetness and a tangy finish that brings a burst of fruitiness.'
-            };
-
-            // Define texture-specific descriptors
-            const textureDescriptors = {
-                'Light & Fluffy': 'With a light and airy texture that melts in your mouth, providing a delightful eating experience.',
-                'Super Moist': 'Exceptionally moist and tender crumb that stays fresh and juicy throughout, perfect for any celebration.',
-                'Dense & Rich': 'Dense and rich texture that provides a satisfying, indulgent bite with layers of flavor.',
-                'Soft & Creamy': 'Smooth and creamy texture that creates a luxurious sensation with every bite, balanced perfectly.'
-            };
-
-            // Define dietary-specific descriptors
-            const dietDescriptors = {
-                '': '',
-                'None': '',
-                'Gluten-Free': 'Carefully crafted to be gluten-free without compromising on flavor or texture.',
-                'Vegan': 'Thoughtfully made with plant-based ingredients that deliver the same delicious taste and satisfaction.',
-                'Nut-Free': 'Prepared in a nut-free environment to ensure safety while maintaining all the deliciousness.',
-                'Dairy-Free': 'Made with dairy alternatives that provide the same rich flavor and moist texture you crave.'
-            };
-
-            // Combine all descriptors
-            let description = flavorDescriptors[flavor] + ' ' + textureDescriptors[texture];
-
-            // Handle multiple dietary restrictions - if diet is comma-separated
-            if (diet !== 'None') {
-                const dietList = diet.split(', ');
-                const dietaryStatements = [];
-                
-                for (const dietItem of dietList) {
-                    if (dietItem in dietDescriptors && dietDescriptors[dietItem]) {
-                        dietaryStatements.push(dietDescriptors[dietItem]);
-                    }
+            const cakes = {
+                'Classic Vanilla': {
+                    name: 'Classic Vanilla Bean Cake',
+                    price: '65',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'A timeless vanilla bean cake with smooth buttercream frosting, perfect for any occasion.',
+                    reasoning: 'Vanilla is a classic choice that never goes out of style.'
+                },
+                'Chocolate Indulgence': {
+                    name: 'Decadent Chocolate Cake',
+                    price: '75',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'Rich, moist chocolate cake layered with ganache and chocolate shavings.',
+                    reasoning: 'Chocolate lovers will appreciate this indulgent treat.'
+                },
+                'Red Velvet Dream': {
+                    name: 'Red Velvet Dream Cake',
+                    price: '85',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'Classic red velvet with cream cheese frosting and decorative crumbs.',
+                    reasoning: 'Red velvet is perfect for special occasions and celebrations.'
+                },
+                'Citrus Sunshine': {
+                    name: 'Lemon Orange Cake',
+                    price: '70',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'Zesty lemon and orange layers with citrus-infused buttercream.',
+                    reasoning: 'The citrus flavors provide a refreshing twist on traditional cake.'
+                },
+                'Coffee Delight': {
+                    name: 'Coffee Walnut Cake',
+                    price: '72',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'Coffee-flavored cake with walnuts and coffee buttercream.',
+                    reasoning: 'Coffee cake is perfect for morning celebrations or coffee lovers.'
+                },
+                'Matcha Green': {
+                    name: 'Japanese Matcha Cake',
+                    price: '78',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'Premium matcha sponge with white chocolate ganache.',
+                    reasoning: 'Matcha offers a unique, sophisticated flavor profile.'
+                },
+                'Berry Bliss': {
+                    name: 'Mixed Berry Cake',
+                    price: '80',
+                    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                    description: 'Light sponge with fresh berry filling and berry cream.',
+                    reasoning: 'Berries add natural sweetness and beautiful color.'
                 }
-                
-                if (dietaryStatements.length > 0) {
-                    description += ' ' + dietaryStatements.join(' ');
-                }
-            }
-
-            return description;
-        }
-
-        // Function to calculate cake price based on complexity
-        function calculateCakePrice(flavor, texture, diet, occasion, sweetness) {
-            // Base price range ($35-$80)
-            let price = 35 + Math.random() * 45;
-
-            // Adjust price based on flavor (some flavors are more expensive)
-            const flavorPriceAdjustment = {
-                'Vanilla': 0,
-                'Chocolate': 5,
-                'Red Velvet': 3,
-                'Citrus': 2,
-                'Coffee': 4,
-                'Matcha': 8,  // Matcha is typically more expensive
-                'Berry': 6     // Fresh berries add cost
             };
-            price += flavorPriceAdjustment[flavor];
 
-            // Handle multiple dietary adjustments - if diet is comma-separated
-            if (diet !== 'None') {
-                const dietList = diet.split(', ');
-                const dietPriceAdjustment = {
-                    'None': 0,
-                    'Gluten-Free': 10,  // Special flour costs
-                    'Vegan': 12,        // Special ingredients
-                    'Nut-Free': 5,      // Special handling
-                    'Dairy-Free': 8     // Dairy alternatives
-                };
-                
-                // Add price for each dietary restriction
-                for (const dietItem of dietList) {
-                    if (dietItem in dietPriceAdjustment) {
-                        price += dietPriceAdjustment[dietItem];
-                    }
-                }
-            }
-
-            // Adjust price based on occasion (formal events may warrant premium pricing)
-            const occasionPriceAdjustment = {
-                'Birthday': 3,
-                'Wedding': 15,      // Wedding cakes are premium
-                'Kids Party': 5,
-                'Morning Tea': 0,
-                'Anniversary': 8,
-                'Just Because': 2
+            const occasionThemes = {
+                'Birthday': '🎈',
+                'Wedding': '💒',
+                'Kids Party': '🎈',
+                'Morning Tea': '☕',
+                'Anniversary': '💝',
+                'Just Because': '✨'
             };
-            price += occasionPriceAdjustment[occasion];
 
-            // Ensure price stays within bounds and round to nearest dollar
-            price = Math.max(35, Math.min(80, Math.round(price)));
+            // Simple matching logic
+            let cakeKey;
+            if (flavor === 'Vanilla') cakeKey = 'Classic Vanilla';
+            else if (flavor === 'Chocolate') cakeKey = 'Chocolate Indulgence';
+            else if (flavor === 'Red Velvet') cakeKey = 'Red Velvet Dream';
+            else if (flavor === 'Citrus') cakeKey = 'Citrus Sunshine';
+            else if (flavor === 'Coffee') cakeKey = 'Coffee Delight';
+            else if (flavor === 'Matcha') cakeKey = 'Matcha Green';
+            else if (flavor === 'Berry') cakeKey = 'Berry Bliss';
 
-            return price;
-        }
+            const cake = cakes[cakeKey];
+            cake.reasoning = `Perfect for your ${occasion.toLowerCase()}! ${cake.reasoning} The ${texture.toLowerCase()} texture complements the ${flavor.toLowerCase()} flavor beautifully.`;
 
-        // Function to generate reasoning explanation
-        function generateReasoning(flavor, sweetness, texture, occasion, diet) {
-            // Create a personalized explanation based on user's selections
-            let reasoning = `Based on your preference for ${flavor} flavors and a ${texture} texture, `;
-            
-            // Add information about sweetness level
-            reasoning += `we've crafted a cake that balances the perfect level of sweetness for your taste buds. `;
-            
-            // Mention the occasion
-            reasoning += `This cake is perfectly suited for a ${occasion.toLowerCase()}, offering both visual appeal and delicious taste. `;
-            
-            // Handle multiple dietary restrictions in reasoning
-            if (diet !== 'None') {
-                const dietList = diet.split(', ');
-                if (dietList.length === 1) {
-                    reasoning += `We've carefully accommodated your ${diet.toLowerCase()} requirements without sacrificing flavor or texture. `;
-                } else {
-                    reasoning += `We've carefully accommodated your ${diet.toLowerCase()} requirements without sacrificing flavor or texture. `;
-                }
-            }
-            
-            // Add final thought about the creation
-            reasoning += `The combination of these elements creates a unique and memorable dessert that reflects your personal taste preferences.`;
-            
-            return reasoning;
+            return cake;
         }
     </script>
 </body>

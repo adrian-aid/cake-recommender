@@ -5,56 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Perfect Slice</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'heading': ['Inter', 'sans-serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                        'heading': ['Outfit', 'sans-serif'],
                     },
                     colors: {
-                        primary: {
-                            DEFAULT: "hsl(var(--primary))",
-                            foreground: "hsl(var(--primary-foreground))",
-                        },
-                        secondary: {
-                            DEFAULT: "hsl(var(--secondary))",
-                            foreground: "hsl(var(--secondary-foreground))",
-                        },
-                        destructive: {
-                            DEFAULT: "hsl(var(--destructive))",
-                            foreground: "hsl(var(--destructive-foreground))",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(var(--muted))",
-                            foreground: "hsl(var(--muted-foreground))",
-                        },
-                        accent: {
-                            DEFAULT: "hsl(var(--accent))",
-                            foreground: "hsl(var(--accent-foreground))",
-                        },
-                        popover: {
-                            DEFAULT: "hsl(var(--popover))",
-                            foreground: "hsl(var(--popover-foreground))",
-                        },
-                        card: {
-                            DEFAULT: "hsl(var(--card))",
-                            foreground: "hsl(var(--card-foreground))",
-                        },
-                        peach: {
-                            DEFAULT: "hsl(var(--peach))",
-                            light: "hsl(var(--peach-light))",
-                        },
-                        cream: "hsl(var(--cream))",
-                        rose: {
-                            DEFAULT: "hsl(var(--rose))",
-                            dark: "hsl(var(--rose-dark))",
-                        },
-                        lavender: {
-                            DEFAULT: "hsl(var(--lavender))",
-                            dark: "hsl(var(--lavender-dark))",
+                        'space-dark': '#0a0a0f',
+                        'space-dark-light': '#12121a',
+                        'space-dark-card': '#1a1a24',
+                        'neon-pink': '#ff2d95',
+                        'neon-purple': '#a855f7',
+                        'neon-blue': '#3b82f6',
+                        'neon-cyan': '#06b6d4',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         },
                     }
                 }
@@ -63,158 +38,231 @@
     </script>
     <style type="text/tailwindcss">
         @layer base {
-            :root {
-                --background: 0 0% 100%;
-                --foreground: 240 10% 3.9%;
-                --primary: 222.2 47.4% 11.2%;
-                --primary-foreground: 0 0% 100%;
-                --secondary: 240 5.9% 10%;
-                --secondary-foreground: 0 0% 100%;
-                --destructive: 0 84.2% 60.2%;
-                --destructive-foreground: 0 0% 98%;
-                --muted: 240 4.8% 95.9%;
-                --muted-foreground: 240 3.8% 46.1%;
-                --accent: 240 5.9% 90%;
-                --accent-foreground: 240 5.9% 10%;
-                --popover: 0 0% 100%;
-                --popover-foreground: 240 10% 3.9%;
-                --card: 0 0% 100%;
-                --card-foreground: 240 10% 3.9%;
-                --peach: 25 85% 65%;
-                --peach-light: 25 85% 90%;
-                --cream: 42 94% 85%;
-                --rose: 340 70% 70%;
-                --rose-dark: 340 70% 50%;
-                --lavender: 240 45% 90%;
-                --lavender-dark: 240 45% 70%;
+            body {
+                font-family: 'Outfit', sans-serif;
+                background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+                min-height: 100vh;
             }
-            .dark {
-                --background: 240 10% 3.9%;
-                --foreground: 0 0% 98%;
-                --primary: 222.2 47.4% 11.2%;
-                --primary-foreground: 0 0% 100%;
-                --secondary: 240 5.9% 10%;
-                --secondary-foreground: 0 0% 100%;
-                --destructive: 0 62.8% 30.6%;
-                --destructive-foreground: 0 0% 100%;
-                --muted: 240 3.7% 15.9%;
-                --muted-foreground: 240 5% 64.9%;
-                --accent: 240 3.7% 15.9%;
-                --accent-foreground: 0 0% 98%;
-                --popover: 240 10% 3.9%;
-                --popover-foreground: 0 0% 98%;
-                --card: 240 10% 3.9%;
-                --card-foreground: 0 0% 98%;
-                --peach: 25 85% 65%;
-                --peach-light: 25 85% 35%;
-                --cream: 42 94% 85%;
-                --rose: 340 70% 70%;
-                --rose-dark: 340 70% 50%;
-                --lavender: 240 45% 90%;
-                --lavender-dark: 240 45% 70%;
+            
+            .glass-card {
+                background: rgba(26, 26, 36, 0.8);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(168, 85, 247, 0.2);
+            }
+
+            .glow-effect {
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0.3),
+                            0 0 60px rgba(168, 85, 247, 0.1);
+            }
+
+            .text-gradient {
+                background: linear-gradient(135deg, #ff2d95, #a855f7, #3b82f6);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .border-gradient {
+                border: 1px solid transparent;
+                background: linear-gradient(#1a1a24, #1a1a24) padding-box,
+                            linear-gradient(135deg, #ff2d95, #a855f7) border-box;
+            }
+
+            .floating-decoration {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(80px);
+                opacity: 0.4;
+                animation: float 8s ease-in-out infinite;
+            }
+
+            .nav-link {
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: #a855f7;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #ff2d95, #a855f7);
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .feature-card {
+                transition: all 0.3s ease;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
             }
         }
-        @layer base {
-            body {
-                font-family: 'Inter', sans-serif;
-                background-color: hsl(var(--background));
-                color: hsl(var(--foreground));
-            }
-            .bg-gray-100 {
-                background-color: hsl(var(--background)) !important;
-            }
-            .text-gray-900 {
-                color: hsl(var(--foreground)) !important;
-            }
-            .text-gray-600 {
-                color: hsl(calc(var(--foreground) + 20%)) !important;
-            }
-            .text-gray-700 {
-                color: hsl(calc(var(--foreground) + 10%)) !important;
-            }
-            h1, h2, h3, h4 {
-                font-family: 'Inter', sans-serif;
-            }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <div class="min-h-screen flex flex-col">
-        <header class="bg-white shadow">
+<body class="text-gray-100 overflow-x-hidden">
+    <!-- Floating Decorations -->
+    <div class="floating-decoration w-96 h-96 bg-purple-600 top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="floating-decoration w-72 h-72 bg-blue-600 bottom-0 right-0 translate-x-1/3 translate-y-1/2" style="animation-delay: 1s;"></div>
+
+    <div class="min-h-screen flex flex-col relative z-10">
+        <header class="glass-card sticky top-0 z-50">
             <div class="container mx-auto px-4 py-4">
                 <nav class="flex justify-between items-center">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">Perfect Slice</a>
-                    <div class="flex space-x-6">
-                        <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
-                        <a href="form.html" class="text-gray-600 hover:text-gray-900 font-medium">Full Form</a>
-                        <a href="about.html" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                    <a href="index.html" class="text-2xl font-bold">
+                        <span class="text-gradient">Perfect</span>
+                        <span class="text-white">Slice</span>
+                    </a>
+                    <div class="flex space-x-8">
+                        <a href="index.html" class="nav-link font-medium text-gray-300">Home</a>
+                        <a href="form.html" class="nav-link font-medium text-gray-300">Find Cake</a>
+                        <a href="about.html" class="nav-link font-medium text-white">About</a>
                     </div>
                 </nav>
             </div>
         </header>
 
         <main class="flex-grow">
-            <div class="container mx-auto px-4 py-12">
-                <div class="max-w-3xl mx-auto text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Perfect Slice</h1>
-                    <p class="text-lg text-gray-700">Your personalized cake recommendation experience</p>
+            <div class="container mx-auto px-4 py-16">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                        About <span class="text-gradient">Perfect Slice</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                        Your AI-powered cake recommendation experience
+                    </p>
                 </div>
 
-                <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200">
-                    <section class="mb-10">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
-                        <p class="text-gray-700 mb-4">
-                            Perfect Slice was born from a simple idea: everyone deserves a cake that perfectly matches their taste and dietary needs.
-                            Our team of passionate bakers and developers came together to create an AI-powered recommendation system that takes
-                            the guesswork out of choosing the perfect cake.
-                        </p>
-                        <p class="text-gray-700">
-                            Whether you're planning a birthday, wedding, anniversary, or just want to treat yourself, Perfect Slice helps you
-                            find a cake that brings joy to your special moments.
-                        </p>
-                    </section>
+                <!-- Story Section -->
+                <section class="mb-16">
+                    <div class="glass-card rounded-2xl p-8 max-w-4xl mx-auto border-gradient">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span class="text-4xl">🌟</span>
+                            Our Story
+                        </h2>
+                        <div class="space-y-6 text-gray-300">
+                            <p>
+                                Perfect Slice was born from a simple idea: everyone deserves a cake that perfectly matches their taste and dietary needs. 
+                                Our team of passionate bakers and developers came together to create an AI-powered recommendation system that takes 
+                                the guesswork out of choosing the perfect cake.
+                            </p>
+                            <p>
+                                Whether you're planning a birthday, wedding, anniversary, or just want to treat yourself, Perfect Slice helps you 
+                                find a cake that brings joy to your special moments.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-                    <section class="mb-10">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">How It Works</h2>
-                        <p class="text-gray-700 mb-4">
-                            Our recommendation engine considers multiple factors to suggest the perfect cake for you:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li><span class="font-semibold">Flavor Preferences</span> - From classic vanilla to unique matcha</li>
-                            <li><span class="font-semibold">Sweetness Level</span> - Customized to your taste</li>
-                            <li><span class="font-semibold">Occasion</span> - Tailored for your specific event</li>
-                            <li><span class="font-semibold">Dietary Needs</span> - Accommodating multiple restrictions</li>
-                            <li><span class="font-semibold">Texture Preference</span> - Light & fluffy to dense & rich</li>
-                        </ul>
-                    </section>
+                <!-- How It Works -->
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-8 text-center">
+                        How <span class="text-gradient">It Works</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="glass-card rounded-2xl p-6 text-center feature-card">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl">🍰</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Choose Your Flavors</h3>
+                            <p class="text-gray-400">Select from classic vanilla to unique matcha and everything in between</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 text-center feature-card" style="animation-delay: 0.2s;">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl">🍯</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Set Sweetness Level</h3>
+                            <p class="text-gray-400">Tell us how sweet you like your treats - low, medium, or high</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 text-center feature-card" style="animation-delay: 0.4s;">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl">🎉</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Pick Your Occasion</h3>
+                            <p class="text-gray-400">From birthdays to weddings, find the perfect cake for any event</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 text-center feature-card" style="animation-delay: 0.6s;">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-green-500 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl">🌱</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Account for Diet</h3>
+                            <p class="text-gray-400">We accommodate gluten-free, vegan, nut-free, and dairy-free needs</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 text-center feature-card" style="animation-delay: 0.8s;">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-pink-500 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl">☁️</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Choose Texture</h3>
+                            <p class="text-gray-400">Light & fluffy to dense & rich - pick your perfect texture</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 text-center feature-card" style="animation-delay: 1s;">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl">✨</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Get Your Match</h3>
+                            <p class="text-gray-400">Our AI analyzes all factors to recommend your perfect cake</p>
+                        </div>
+                    </div>
+                </section>
 
-                    <section class="mb-10">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Commitment</h2>
-                        <p class="text-gray-700">
-                            We're committed to helping people discover delicious cakes that fit their unique preferences and dietary requirements.
+                <!-- Commitment Section -->
+                <section class="mb-16">
+                    <div class="glass-card rounded-2xl p-8 max-w-4xl mx-auto border-gradient">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span class="text-4xl">💜</span>
+                            Our Commitment
+                        </h2>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            We're committed to helping people discover delicious cakes that fit their unique preferences and dietary requirements. 
                             Our algorithm continuously learns and improves to provide recommendations that bring smiles to faces around the world.
                         </p>
-                    </section>
+                    </div>
+                </section>
 
-                    <section>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                        <p class="text-gray-700">
+                <!-- Contact Section -->
+                <section class="mb-16">
+                    <div class="glass-card rounded-2xl p-8 max-w-2xl mx-auto text-center border-gradient">
+                        <h2 class="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+                            <span class="text-4xl">📬</span>
+                            Get In Touch
+                        </h2>
+                        <p class="text-gray-300 mb-6">
                             Have questions or feedback? We'd love to hear from you!
-                            Reach out to us at <a href="mailto:info@perfectslice.example" class="text-blue-600 hover:underline">info@perfectslice.example</a>
                         </p>
-                    </section>
-                </div>
+                        <a href="mailto:info@perfectslice.example" class="inline-flex items-center gap-2 btn-primary text-white font-semibold py-3 px-8 rounded-full">
+                            <span>📧</span>
+                            info@perfectslice.example
+                        </a>
+                    </div>
+                </section>
             </div>
         </main>
 
-        <footer class="bg-white border-t py-8 mt-auto">
+        <footer class="glass-card py-8 mt-auto">
             <div class="container mx-auto px-4">
                 <div class="text-center">
-                    <p class="text-gray-600">&copy; 2023 Perfect Slice. All rights reserved.</p>
+                    <p class="text-gray-400">&copy; 2024 Perfect Slice. All rights reserved.</p>
                     <div class="mt-4 flex justify-center space-x-6">
-                        <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
-                        <a href="form.html" class="text-gray-600 hover:text-gray-900 font-medium">Full Form</a>
-                        <a href="about.html" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                        <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                        <a href="form.html" class="text-gray-400 hover:text-white transition-colors">Find Cake</a>
+                        <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
                     </div>
                 </div>
             </div>
